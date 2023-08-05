@@ -1,0 +1,144 @@
+*{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+a:not(.info-acc a){
+    color: white;
+    text-decoration: none;
+}
+
+/* HEADER.PHP STYLES */
+
+.header{
+    width: 100vw;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 40px;
+    padding-right: 40px;
+    background-color: green;
+    color: white;
+}
+
+.nav{
+    width: 35vw;
+    height: 10vh;
+    display: flex;
+    justify-content: right;
+    gap: 100px;
+    align-items: center;
+}
+
+
+.nav .list-items{
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.btn:hover{
+    text-decoration: underline;
+}
+
+/* HEADER.PHP STYLES */
+
+
+/* LOGIN AND REGISTER FROM STYLES */
+
+.center-form{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.error{
+    width: 475px;
+    height: 25px;
+    text-align: center;
+    display: block;
+    margin-bottom: 15px;
+    position: absolute;
+    top: 20%;
+}
+
+.bad-info{
+    background-color: rgb(255, 164, 164);
+    color: red;
+}
+
+.good-info{
+    background-color: rgb(113, 255, 113);
+    color: green;
+}
+
+.form{
+    width: 480px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid black;
+    gap: 50px;
+}
+
+.input-element{
+    display: flex;
+}
+
+.name-input, .surrname-input, .register-passwd-input{
+    width: 215px;
+    height: 25px;
+    margin: 5px;
+}
+
+.form .input:not(.name-input,.surrname-input, .register-passwd-input){
+    width: 440px;
+    height: 25px;
+    margin: 5px;
+}
+
+.show-element{
+    margin-right: 350px;
+}
+
+.form-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.register-btn{
+    margin-top: 25px;
+    width: 80px;
+    height: 35px;
+    border: none;
+    outline: none;
+    color: white;
+    background-color: green;
+    cursor: pointer;
+}
+
+.info-acc{
+    margin-top: 100px;
+    color: gray;
+}
+
+/* LOGIN AND REGISTER FROM STYLES */
+
+/* CREATE.PHP STYLES */
+
+.main-create{
+    width: 100vw;
+    height: 90vh;
+}
+
+/* CREATE.PHP STYLES */
