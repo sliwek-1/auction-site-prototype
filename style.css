@@ -10,6 +10,10 @@ a:not(.info-acc a){
     text-decoration: none;
 }
 
+body{
+    overflow-x: hidden;
+}
+
 /* HEADER.PHP STYLES */
 
 .header{
@@ -138,7 +142,69 @@ a:not(.info-acc a){
 
 .main-create{
     width: 100vw;
-    height: 90vh;
+    height: 120vh;
+    padding: 5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.create-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 450px;
+    height: auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    margin-bottom: 5vh;
+}
+
+.input:not(.photo,.numer){
+    border: none;
+    outline: none;
+    border-bottom: 1px solid black;
+    padding: 10px;
+}
+
+.title{
+    width: 400px;
+    height: 25px;
+    font-weight: bold;
+    border-bottom: 1px solid black;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+.cena,.title-auction{
+    width: 400px;
+}
+
+#opis{
+   resize: none;
+   width: 400px;
+   height: 15vh;
+   outline: none;
+   border: 1px solid black;
+   padding: 5px;
+}
+
+.submit{
+    width: 150px;
+    height: 50px;
+    color: white;
+    font-weight: bold;
+    background-color: green;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.submit:hover{
+    background-color: rgb(1, 159, 1);
 }
 
 /* CREATE.PHP STYLES */

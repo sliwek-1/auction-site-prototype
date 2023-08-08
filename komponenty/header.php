@@ -1,9 +1,9 @@
 <?php 
     session_start();
     include_once('php/connection.php');
-    $userID = $_SESSION['userID'];
     
-    if(isset($userID)){
+    if(isset($_SESSION['userID'])){
+        $userID = $_SESSION['userID'];
         $sql = "SELECT imie, nazwisko from users where id = :id";
         $request = $conn->prepare($sql);
         $request->bindParam(':id', $userID);
