@@ -15,7 +15,7 @@
     if(!empty($email) && !empty($passwd)){
         if(filter_var($email,FILTER_VALIDATE_EMAIL)){
             include_once('connection.php');
-
+        
             $sql = "SELECT COUNT(*) as 'count',id FROM users WHERE email = :email AND passwd = :passwd";
             $request = $conn->prepare($sql); 
             $request->bindParam(':email',$email);

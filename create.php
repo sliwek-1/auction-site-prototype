@@ -17,7 +17,7 @@
                 <div for="tytul" class="title">Tytuł Aukcji:</div>
                 <input type="text" name="title" class="input title-auction" placeholder="Tytuł">
                 <div for="cena class=" class="title">Cena Wywolawcza:</div>
-                <input type="number" name="cena" class="input cena" placeholder="Cena">
+                <input type="number" name="cena" class="input cena" placeholder="Cena" min="0">
                 
                 <div class="data-start">
                     <div class="date_start title">Od kiedy: </div>
@@ -29,7 +29,7 @@
                     <label for="sekunda">Sec.</label>
                     <input type="number" name="sekunda-start" min="0" max="60" value="0" class="input number"> 
                 </div>
-                
+
                 <div class="data-end">
                     <div class="date_end title">Do kiedy: </div>
                     <input type="date" name="data-end" class="input"> 
