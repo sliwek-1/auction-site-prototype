@@ -221,3 +221,73 @@ body{
 }
 
 /* CREATE.PHP STYLES */
+
+.main{
+    margin-top: 50px;
+}
+
+.product-section{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.auction-product{
+    width: 75vw;
+    height: 25vh;
+    border-bottom: 1px solid black;
+    display: grid;
+    grid-template-columns: repeat(12,1fr);
+    grid-template-rows: repeat(12,1fr);
+    padding: 15px;
+}
+
+.auction-product:hover{
+    background-color: #eee;
+    cursor: pointer;
+}
+
+.img-auction{
+    width: 15vw;
+    height: 20vh;
+    grid-column: 1/5;
+    grid-row: 1/13
+}
+
+.auction-product .title-auction{
+    grid-column: 4/9;
+    grid-row: 1/2;
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+.auction-product .cena{
+    max-width: 150px;
+    grid-column: 12/13;
+    grid-row: 1/3;
+    font-weight: bold;
+}
+
+.btn-buy{
+    grid-column: 12/13;
+    grid-row: 9/10;
+    width: 125px;
+    height: 35px;
+    background-color: green;
+    color: white;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-buy:hover{
+    background-color: rgb(3, 172, 3);
+}
+
+.time-info{
+    grid-column: 6/9;
+    grid-row: 9/10;
+}

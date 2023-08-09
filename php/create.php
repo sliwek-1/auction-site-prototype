@@ -17,7 +17,6 @@
     $dataStart = $data_start . " " . $godzina_start . ":" . $minuta_start . ":" . $sekunda_start;
     $dataEnd = $data_end . " " . $godzina_end . ":" . $minuta_end . ":" . $sekunda_end;
 
-
     function validate(string $data): string{
         trim($data);
         htmlentities($data);
@@ -31,7 +30,7 @@
             if(date($dataEnd) > date($dataStart)){
                 include_once('connection.php');
                 $id = time();
-                $sql = "INSERT INTO auctions(id_auction,title,cena,opis,data_start,data_end) VALUES(:id_auction,:title, :cena, :opis, :data_start, :data_end)";
+                $sql = "INSERT INTO auctions(id_auction,title,cena,opis,data_start,data_end,user_id) VALUES(:id_auction,:title, :cena, :opis, :data_start, :data_end,:user_id)";
                 $request = $conn->prepare($sql);
                 $request->bindParam(':id_auction', $id);
                 $request->bindParam(':title', $title);
@@ -39,6 +38,7 @@
                 $request->bindParam(':opis', $opis);
                 $request->bindParam(':data_start', $dataStart);
                 $request->bindParam(':data_end', $dataEnd);
+                $request->bindParam(':user_id', $userID);
 
                 $request->execute();
 
@@ -74,7 +74,6 @@
                     }else{
                         echo "Nie załadowana żadnych plików";
                     }
-
                 }else{
                     echo "Coś poszło nie tak";
                 }
