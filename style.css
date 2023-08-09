@@ -207,4 +207,17 @@ body{
     background-color: rgb(1, 159, 1);
 }
 
+.photo{
+    display: inline-block;
+    padding: 8px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: green;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 400px;
+}
+
 /* CREATE.PHP STYLES */

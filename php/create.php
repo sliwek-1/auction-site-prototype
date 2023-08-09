@@ -1,4 +1,5 @@
 <?php 
+    error_reporting(0);
     session_start();
     $userID = $_SESSION['userID'];
     $title = $_POST['title'];
@@ -24,8 +25,6 @@
         return $data;
     }
 
-    //echo "Data Rozpoczęcia: ".$dataStart." | "."Data Zakończenia: ".$dataEnd;
-
     if(!empty($title) && !empty($cena) && !empty($opis) && !empty($data_start) && !empty($data_end)){
         $currentDateTime = date('Y-m-d H:i:s');
         if($currentDateTime < date($dataStart)){
@@ -46,16 +45,25 @@
                 if($request){
                     if(isset($_FILES['photos']['name']) && count($_FILES['photos']['name']) > 0){
                         $dir = "img/";
-                        for($i = 0;$i <= count($_FILES['photos']['name']);$i++){
+                        for($i = 0;$i < count($_FILES['photos']['name']);$i++){
                             $fileExtension = explode('.',$_FILES['photos']['name'][$i])[1];
                             $fileName = explode('.',$_FILES['photos']['name'][$i])[0];
                             $allowedExtensions = ['jpg','png','jpeg'];
                             
-                            if(in_array($fileExtension,$allowedExtensions)){
+                            if(in_array($fileExtension,$allowedExtensions,true)){
                                 $fileNewName = $fileName."_". $i.".".$fileExtension;
                                 $destinationFilePath = $dir.$fileNewName;
                                 if(move_uploaded_file($_FILES['photos']['tmp_name'][$i],$destinationFilePath)){
-                                    echo $destinationFilePath;
+                                    $sql2 = "INSERT INTO images(id_auction,src) VALUES(:id_auction,:src)";
+                                    $request2 = $conn->prepare($sql2);
+                                    $request2->bindParam(':id_auction',$id);
+                                    $request2->bindParam(':src',$destinationFilePath);
+                                    $request2->execute();
+                                    if($request2){
+                                        echo "success";
+                                    }else{
+                                        echo "Coś poszło nie tak";
+                                    }
                                 }else{
                                     echo "Coś poszło nie tak";
                                 }
