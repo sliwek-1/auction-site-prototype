@@ -296,3 +296,48 @@ body{
     grid-row: 9/10;
     font-weight: bold;
 }
+
+.img-section.active{
+    display: block;
+}
+
+.img-section{
+    display: none;
+}
+
+.img-section img{
+    width: 35vw;
+    height: 45vh;
+}
+
+.img-auction-section{
+    display: flex;
+}
+
+.backward-btn, 
+.forward-btn{
+    width: 2.5vw;
+    height: 45vh;
+    outline: none;
+    border: none;
+    background-color: #ddd;
+    cursor: pointer;
+}
+
+.pagination-img{
+    width: 40vw;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    overflow-x: scroll;
+}
+
+.img-pagination{
+    cursor: pointer;
+}
+
+.img-pagination img{
+    width: 7vw;
+    height: 5vh;
+    object-fit: cover;
+}

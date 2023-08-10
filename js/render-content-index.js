@@ -26,8 +26,6 @@ async function load(){
                 main.appendChild(element);
 
                 let timeInfo = element.querySelector('.time-info');
-                let btn = element.querySelector('.btn-buy');
-                
                 calculateData(row.data_start, row.data_end,timeInfo);
                 setInterval(() => {
                     calculateData(row.data_start, row.data_end,timeInfo);

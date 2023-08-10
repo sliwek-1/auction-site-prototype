@@ -1,4 +1,5 @@
 <?php 
+    error_reporting(0);
     session_start();
     include_once('php/connection.php');
 
@@ -19,8 +20,52 @@
     $request2->bindParam(':id_auction',$auctionID);
     $request2->execute();
     $response2 = $request2->fetchAll(PDO::FETCH_ASSOC);
+    
+    $data = $response[0];
 
-    $data = array_merge($response, $response2);
+    $images = $response2;
 
-    print_r($data);
+    $i = 1;
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="./js/slider.js" defer></script>
+    <title>Aukcja - <?= $data['title'] ?></title>
+</head>
+<body>
+    <?php include_once('komponenty/header.php'); ?>
+    <div class="auction">
+        <div class="img-auction-section">
+            <button class="backward-btn"><</button>
+            <?php foreach($images as $img) { ?>
+                <div class="img-section" data-id="<?= $i ?>">
+                    <img src="php/<?= $img['src'] ?>" alt="#">
+                </div>
+            <?php 
+                $i++;
+                }
+            ?>
+            <button class="forward-btn">></button>
+        </div>
+        <div class="pagination-img">
+            <?php foreach($images as $img) { ?>
+                <div class="img-pagination" data-id="<?= $i ?>">
+                    <img src="php/<?= $img['src'] ?>" alt="#">
+                </div>
+            <?php 
+                $i++;
+                }
+            ?>
+        </div>
+        <div class="info-auction-section">
+            <div class="title"><?= $data['title'] ?></div>
+            <div class="cena">Cena Wywoławcza: <?= $data['cena'] ?></div>
+            <div class="opis"><?= $data['opis'] ?></div>
+        </div>
+    </div>
+</body>
+</html>

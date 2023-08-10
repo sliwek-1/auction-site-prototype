@@ -16,7 +16,7 @@
                 <h1>Utwórz nową aukcje</h1>
                 <div for="tytul" class="title">Tytuł Aukcji:</div>
                 <input type="text" name="title" class="input title-auction" placeholder="Tytuł">
-                <div for="cena class=" class="title">Cena Wywolawcza:</div>
+                <div for="cena" class="title">Cena Wywolawcza:</div>
                 <input type="number" name="cena" class="input cena" placeholder="Cena" min="0">
                 
                 <div class="data-start">
