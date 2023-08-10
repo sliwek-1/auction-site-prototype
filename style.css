@@ -273,14 +273,18 @@ body{
 .btn-buy{
     grid-column: 12/13;
     grid-row: 9/10;
-    width: 125px;
-    height: 35px;
     background-color: green;
     color: white;
     border-radius: 10px;
     outline: none;
     border: none;
     cursor: pointer;
+    text-align: center;
+    padding: 10px 15px;
+}
+
+.btn-buy.active{
+    display: none;
 }
 
 .btn-buy:hover{
@@ -290,4 +294,5 @@ body{
 .time-info{
     grid-column: 6/9;
     grid-row: 9/10;
+    font-weight: bold;
 }

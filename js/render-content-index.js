@@ -1,8 +1,6 @@
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('DOMContentLoaded',() =>{
     load();
 })
-
-
 async function load(){
     let main = document.querySelector('.product-section');
     try{
@@ -20,7 +18,7 @@ async function load(){
                 <div class="title-auction">${row.title}</div>
                 <div class="cena">cena: ${row.cena} zł</div>
                 <div class="time-info"></div>
-                <button type="submit" class="btn-buy">Licytuj</button>`;
+                <a href="auction.php?auctionID=${row.id_auction}" class="btn-buy">Licytuj</a>`;
 
                 let element = document.createElement('div');
                 element.classList.add('auction-product');
@@ -28,43 +26,58 @@ async function load(){
                 main.appendChild(element);
 
                 let timeInfo = element.querySelector('.time-info');
-
-                let calculateData = (startData, endData) =>{
-                    let dt = new Date().getTime();
-                    let dataStart = new Date(startData).getTime();
-                    let dataEnd = new Date(endData).getTime();
+                let btn = element.querySelector('.btn-buy');
                 
-                    if(dt <= dataStart){
-                        let timeDiffrent = dataStart - dt;
-                        let days = Math.floor(timeDiffrent / (1000 * 60 * 60 * 24));
-                        let hours = Math.floor((timeDiffrent % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                        let minutes = Math.floor((timeDiffrent % (1000 * 60 * 60)) / (1000 * 60));
-                        let seconds = Math.floor((timeDiffrent % (1000 * 60)) / 1000);
-                        timeInfo.innerHTML = "";
-                        let text = '<p style="color:green;">Do rozpoczęcia pozostało - ' + (days < 10 ? "0" + days : days) + ":"+ (hours < 10 ? "0" + hours : hours) + ":" + (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds < 10 ? "0" + seconds : seconds) + '</p>';
-                        timeInfo.innerHTML = text;
-                    }else if(dt >= dataStart && dt <= dataEnd){
-                        let timeDiffrent = dataEnd - dt;
-                        let days = Math.floor(timeDiffrent / (1000 * 60 * 60 * 24));
-                        let hours = Math.floor((timeDiffrent % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                        let minutes = Math.floor((timeDiffrent % (1000 * 60 * 60)) / (1000 * 60));
-                        let seconds = Math.floor((timeDiffrent % (1000 * 60)) / 1000);
-                
-                        timeInfo.innerHTML = "";
-                        let text = '<p style="color:red;">Do zakończenia pozostało - ' +  (days < 10 ? "0" + days : days) + ":"+ (hours < 10 ? "0" + hours : hours) + ":" + (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds < 10 ? "0" + seconds : seconds) + '</p>';
-                        timeInfo.innerHTML = text;
-                    }else{
-                        timeInfo.innerHTML = "";
-                        let text = '<p>Licytacja się zakończyła</p>';
-                        timeInfo.innerHTML = text;
-                    }
-                }
-
+                calculateData(row.data_start, row.data_end,timeInfo);
                 setInterval(() => {
-                    calculateData(row.data_start, row.data_end);
+                    calculateData(row.data_start, row.data_end,timeInfo);
                 },1000);
         })
     }catch(error){
         console.log(error);
     }
 }
+
+function calculateData(startData, endData, timeInfo){ 
+    let dt = new Date().getTime();
+    let dataStart = new Date(startData).getTime();
+    let dataEnd = new Date(endData).getTime();
+
+    if(dt <= dataStart){
+        let timeDiffrent = dataStart - dt;
+        let days = Math.floor(timeDiffrent / (1000 * 60 * 60 * 24));
+        let hours = Math.floor((timeDiffrent % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        let minutes = Math.floor((timeDiffrent % (1000 * 60 * 60)) / (1000 * 60));
+        let seconds = Math.floor((timeDiffrent % (1000 * 60)) / 1000);
+        timeInfo.innerHTML = "";
+        let text = '<p style="color:green;">Do rozpoczęcia pozostało - ' + (days < 10 ? "0" + days : days) + ":"+ (hours < 10 ? "0" + hours : hours) + ":" + (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds < 10 ? "0" + seconds : seconds) + '</p>';
+        timeInfo.innerHTML = text;
+
+        let auctionElement = timeInfo.parentElement;
+        let btn = auctionElement.querySelector('.btn-buy');
+        btn.classList.add('active');
+    }else if(dt >= dataStart && dt <= dataEnd){
+        let timeDiffrent = dataEnd - dt;
+        let days = Math.floor(timeDiffrent / (1000 * 60 * 60 * 24));
+        let hours = Math.floor((timeDiffrent % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        let minutes = Math.floor((timeDiffrent % (1000 * 60 * 60)) / (1000 * 60));
+        let seconds = Math.floor((timeDiffrent % (1000 * 60)) / 1000);
+
+        timeInfo.innerHTML = "";
+        let text = '<p style="color:red;">Do zakończenia pozostało - ' +  (days < 10 ? "0" + days : days) + ":"+ (hours < 10 ? "0" + hours : hours) + ":" + (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds < 10 ? "0" + seconds : seconds) + '</p>';
+        timeInfo.innerHTML = text;
+
+        let auctionElement = timeInfo.parentElement;
+        let btn = auctionElement.querySelector('.btn-buy');
+        btn.classList.remove('active');
+    }else{
+        timeInfo.innerHTML = "";
+        let text = '<p>Licytacja się zakończyła</p>';
+        timeInfo.innerHTML = text;
+
+        let auctionElement = timeInfo.parentElement;
+        let btn = auctionElement.querySelector('.btn-buy');
+        btn.classList.add('active');
+    }
+}
+
