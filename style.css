@@ -3,6 +3,40 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    scrollbar-width: thin;
+    scrollbar-color: #000000 #F2FDFF;
+}
+
+  
+*::-webkit-scrollbar {
+    width: 4px;
+    width: 4px;
+}
+
+*::-webkit-scrollbar-track {
+    border-radius: 5px;
+    background-color: white;
+}
+  
+*::-webkit-scrollbar-track:hover {
+    background-color: white;
+}
+  
+*::-webkit-scrollbar-track:active {
+    background-color: white;
+}
+  
+*::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: #000000;
+}
+  
+*::-webkit-scrollbar-thumb:hover {
+    background-color: #27411E;
+}
+  
+*::-webkit-scrollbar-thumb:active {
+    background-color: #2F4F24;
 }
 
 a:not(.info-acc a){
@@ -310,8 +344,34 @@ body{
     height: 45vh;
 }
 
+.info-auction-section{
+    grid-column: 8/12;
+    grid-row: 2/8;
+    width: 40vw;
+    height: 70vh;
+    background-color: #eee;
+}
+
+.info-auction-section .cena{
+    font-weight: bold;
+}
+
+.image-sec{
+    width: 42vw;
+    height: 70vh;
+    background-color: #eee;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    grid-column: 2/7;
+    grid-row: 2/8;
+}
+
 .img-auction-section{
     display: flex;
+    justify-content: center;
+    margin-top: 50px;
 }
 
 .backward-btn, 
@@ -320,24 +380,50 @@ body{
     height: 45vh;
     outline: none;
     border: none;
-    background-color: #ddd;
+    background-color: #71b056;
     cursor: pointer;
+    color: white;
+    font-weight: bold;
+}
+
+.backward-btn{
+    border-radius: 10px 0px 0px 10px;
+}
+
+.forward-btn{
+    border-radius: 0px 10px 10px 0px;
+}
+
+.auction{
+    width: 100vw;
+    height: 90vh;
+    display: grid;
+    grid-template-columns: repeat(12,1fr);
+    grid-template-rows: repeat(12,1fr);
 }
 
 .pagination-img{
-    width: 40vw;
+    grid-column: 3/5;
+    grid-row: 8/9;
     display: flex;
-    justify-content: center;
-    gap: 5px;
+    align-items: center;
+    gap: 10px;
+    width: 40vw;
+    height: 10vh;
+    padding: 5px;
+    overflow-y: hidden;
     overflow-x: scroll;
+    margin-top: 25px;
 }
 
-.img-pagination{
-    cursor: pointer;
+.pagination-img::-webkit-scrollbar {
+    height: 5px;
 }
 
 .img-pagination img{
-    width: 7vw;
-    height: 5vh;
+    width: 7.5vw;
+    height: 6vh;
     object-fit: cover;
+    border-radius: 10px;
+    cursor: pointer;
 }

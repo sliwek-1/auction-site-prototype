@@ -25,7 +25,8 @@
 
     $images = $response2;
 
-    $i = 1;
+    $i = 0;
+    $j = 0;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,27 +40,29 @@
 <body>
     <?php include_once('komponenty/header.php'); ?>
     <div class="auction">
-        <div class="img-auction-section">
-            <button class="backward-btn"><</button>
-            <?php foreach($images as $img) { ?>
-                <div class="img-section" data-id="<?= $i ?>">
-                    <img src="php/<?= $img['src'] ?>" alt="#">
-                </div>
-            <?php 
-                $i++;
-                }
-            ?>
-            <button class="forward-btn">></button>
-        </div>
-        <div class="pagination-img">
-            <?php foreach($images as $img) { ?>
-                <div class="img-pagination" data-id="<?= $i ?>">
-                    <img src="php/<?= $img['src'] ?>" alt="#">
-                </div>
-            <?php 
-                $i++;
-                }
-            ?>
+        <div class="image-sec">
+            <div class="img-auction-section">
+                <button class="backward-btn"><</button>
+                <?php foreach($images as $img) { ?>
+                    <div class="img-section" data-id="<?= $i ?>">
+                        <img src="php/<?= $img['src'] ?>" alt="#">
+                    </div>
+                <?php 
+                    $i++;
+                    }
+                ?>
+                <button class="forward-btn">></button>
+            </div>
+            <div class="pagination-img">
+                <?php foreach($images as $img) { ?>
+                    <div class="img-pagination" data-id="<?= $j ?>">
+                        <img src="php/<?= $img['src'] ?>" alt="#">
+                    </div>
+                <?php 
+                    $j++;
+                    }
+                ?>
+            </div>
         </div>
         <div class="info-auction-section">
             <div class="title"><?= $data['title'] ?></div>
