@@ -12,7 +12,7 @@ paginationImages.forEach(img => {
             if(index == id){
                 img.classList.add('active');
             }
-        })
+        }) 
         counter = id;
     })
 })

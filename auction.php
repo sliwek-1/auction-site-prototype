@@ -65,8 +65,8 @@
             </div>
         </div>
         <div class="info-auction-section">
-            <div class="title"><?= $data['title'] ?></div>
-            <div class="cena">Cena Wywoławcza: <?= $data['cena'] ?></div>
+            <div class="title-info"><?= $data['title'] ?></div>
+            <div class="cena">Cena: <span> <?= $data['cena'] ?> </span> zł</div>
             <div class="opis"><?= $data['opis'] ?></div>
         </div>
     </div>
