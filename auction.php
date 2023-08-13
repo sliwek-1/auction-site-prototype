@@ -69,6 +69,12 @@
             <div class="cena">Cena: <span> <?= $data['cena'] ?> </span> zł</div>
             <div class="opis"><?= $data['opis'] ?></div>
         </div>
+        <div class="auction-btn-section">
+            <form action="#" method="post">
+                <input type="number" name="your-price" class="input" value="<?= $data['cena'] ?>">
+                <button type="submit" class="auction-btn">Licytuj!</button>
+            </form>
+        </div>
     </div>
 </body>
 </html>

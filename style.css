@@ -458,3 +458,32 @@ body{
     border-radius: 10px;
     cursor: pointer;
 }
+
+.auction-btn-section{
+    width: 40vw;
+    height: 10vh;
+    grid-column: 8/12;
+    grid-row: 9/12;
+    background-color: #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.auction-btn-section form input{
+    margin-right: 15px;
+}
+
+.auction-btn{
+    padding: 10px 30px;
+    background-color: green;
+    color: white;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.auction-btn:hover{
+    background-color: rgb(1, 161, 1);
+}
